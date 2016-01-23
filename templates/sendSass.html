@@ -11,7 +11,7 @@
         <link rel="stylesheet" type="text/css" href="/static/style.css">
     </head>
 
-    <nav class="navbar navbar-fixed-top">
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -21,13 +21,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#" >My Chores</a>
+                <a class="navbar-brand" href="#">Sassmates</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="sendSass.html">Sass</a></li>
-                    <li><a href="">Settings</a></li>
+                    <li><a href="#">Sass</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Log out</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -35,41 +36,53 @@
 
     <body>
         <!-- The class creates a margin and sets the following text/pictures at the center-->
-        <div class="sendSass-container">
-            <!-- Info of chars (1/3  of page) -->
-            <div class="col-1-3">
-                List of chores (sorted by due date):
-
-                <!-- Chore 1. Trash -->
-                <div class="row">
-                    <div class="col-md-6">
-
-                        <!-- Trash by Jaclyn-->
-
-                        <div class="Chore">
-                            <div class="chore-title">
-                                Taking out the trash
-                            </div>
-                            <div class ="Person">
-                                Jaclyn Iullianetti
-                            </div>
-                            <div class="days-left">
-                                Days left: 1
-                            </div>
-                        </div>
-                    </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-5" id="list">
+                    <h1>Chore</h1>
+                    <h2>Person is x days late</h2>
+                    <h1>Chore</h1>
+                    <h2>Person is x days late</h2>
+                    <h1>Chore</h1>
+                    <h2>Person has x days left</h2>
+                    <h1>Chore</h1>
+                    <h2>Person has x days left</h2>
+                    <h1>Chore</h1>
+                    <h2>Person has x days left</h2>
+                    <h1>Chore</h1>
+                    <h2>Person has x days left</h2>
                 </div>
-
+                <div class="col-md-7" id="sendsass">
+                    <form id="contactinfo">
+                        Send sass to
+                        <select name="Name">
+                            <option value="choose">Choose a name</option>
+                            <option value="jaclyn">Jaclyn</option>
+                            <option value="nj">NJ</option>
+                            <option value="adrian">Adrian</option>
+                            <option value="jess">Jess</option>
+                            <option value="taylor">Taylor</option>
+                            <option value="spencer">Spencer</option>
+                        </select>
+                        for
+                        <select name="Chore">
+                            <option value="choose">Choose a chore</option>
+                            <option value="trash">Trash</option>
+                            <option value="dishes">Dishes</option>
+                            <option value="dusting">Dusting</option>
+                            <option value="sweeping">Sweeping</option>
+                            <option value="bathroom">Bathroom</option>
+                            <option value="kitchen">Kitchen</option>
+                            <option value="grocery">Grocery</option>
+                        </select>
+                    </form>
+                    <form>
+                        <textarea name="message" rows="10" cols="50">
+                            Type your custom sass here.
+                        </textarea>
+                    </form>
+                </div>
             </div>
-
-            <!-- Send sass message (2/3 of page) -->
-
-            <div class="col-2-3">
-            Send Sass to someone
-            </div>
-
         </div>
     </body>
-
-
 </html>
