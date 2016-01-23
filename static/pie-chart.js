@@ -23,7 +23,7 @@ var svg = d3.select("#mychart").append("svg")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-d3.csv("data.csv", type, function(error, data) {
+d3.csv("/static/data.csv", type, function(error, data) {
   if (error) throw error;
 
   var g = svg.selectAll(".arc")
