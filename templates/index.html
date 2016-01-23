@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 	<!-- Meta tags -->
-	<title>Sassmates</title>
+	<title>SassMates</title>
 	<!-- Scripts -->
 	<script src="//d3js.org/d3.v3.min.js"></script>
 	<!-- Styles -->
@@ -9,6 +9,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -19,7 +20,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Sassmates</a>
+                <a class="navbar-brand" href="#">SassMates</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -37,7 +38,10 @@
     <div class-"container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <div id="mychart"></div>
+                <script src="https://code.highcharts.com/highcharts.js"></script>
+                <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+                <div id="container" style="width: 600px; height: 400px; margin: 0 auto"></div>
             </div>
             <div class="col-md-6">
                 <h1>Current Chores</h1>
