@@ -5,7 +5,7 @@ class User:
         self.phone = phone
         self.password = password
         self.houseCode = None
-git commi
+
     def getEmail(self):
         return self.email
 
