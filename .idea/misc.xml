@@ -10,4 +10,8 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
+<<<<<<< HEAD
+=======
+  <component name="ProjectRootManager" version="2" />
+>>>>>>> a625b119452fde6013b7c84993ddb207c389fac6
 </project>
