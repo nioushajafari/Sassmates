@@ -41,11 +41,7 @@ nav {
 .navlink:hover {
     color: rgb(110, 180, 210);
 }
-.blog-container {
-    margin: 300px;
-    margin-top: 100px;
-    margin-bottom: 5px;
-}
+
 .title {
     color: black;
     font-family: 'Voces';
@@ -55,4 +51,9 @@ nav {
 .title:hover {
     text-decoration: none;
     color: black;
+}
+
+.sendSass-container {
+    margin-bottom: 5px;
+    margin-top: 100px;
 }
