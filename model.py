@@ -1,6 +1,9 @@
- from time import gmtime, strftime
+from time import gmtime, strftime
 
- class User:
+from datetime import datetime
+from dateutil import relativedelta
+
+class User:
     'a user'
     userNum = 1001
 
@@ -24,7 +27,6 @@ class Chore:
         self.dpr = dpr
         self.lastDone = None
         self.currentUser = None
-
 
 class HouseHold:
     'a full household'
@@ -50,7 +52,6 @@ class HouseHold:
     def startHouse(self, groupings):
         # checks house start is valid
         if (len(self.people) == self.numPeople) and not self.started:
-            # for each group
             for x in range(0, len(self.groupings):
                 personid = self.people[x]
                 for y in range(0, self.groupings[x]):
@@ -62,7 +63,7 @@ class HouseHold:
         else:
             return False
 
-    # String representing the chore -> boolean
+    # String representing the chore -> void (move the chore to the next person)
     def doChore(self, chore):
         oldUser = -1
         oldUserPlace = -1
@@ -79,23 +80,39 @@ class HouseHold:
 
         if (oldUserPlace != -1):
             if oldUserPlace == (len(self.people) - 1):
-                self.chores[choreNum] = 0
+                self.chores[choreNum] = self.people[0]
             else:
-                self.chores[choreNum] = (oldUserPlace + 1)
+                self.chores[choreNum] = self.people[oldUserPlace + 1]
 
-    # String representing the chore -> boolean
-    def daysLeftForChore(self, chore):
-        # TODO Calculate Date Code
+
+
 
     # User ID Number -> List of Chores For Person
     def getUserChores(self, user):
+        userChores = []
+        for chore in self.chores:
+            if (chore.currentUser == user)
+                userChores.append(chore)
+        return userChores
 
+    def __compareDates
 
     # Return the list of chores sorted by time
     def choresByTime(self):
 
+    # String representing the chore -> boolean
+    def daysLeftForChore(self, chore):
+    # TODO Calculate Date Code
+
+
+
     # User ID Number -> List of Chores For Person Immediatly Before
     def userBeforeChores(self, user):
+        if user == (len(self.people) - 1):
+            return getUserChores(self.people[0])
+        else:
+            return getUserChores(user + 1)
+
 
 
 class Model:
