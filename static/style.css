@@ -9,3 +9,14 @@
     text-align: center;
     float: right;
 }
+.title:hover {
+    text-decoration: none;
+    color: black;
+}
+#container {
+    padding-left: 20px;
+    width: 600px; height: 600px; margin: 0 auto;
+}
+#mychores {
+    text-align: center;
+}
