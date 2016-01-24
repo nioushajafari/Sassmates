@@ -1,12 +1,17 @@
-@import url(https://fonts.googleapis.com/css?family=Playball|Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Playball);
+@import url(https://fonts.googleapis.com/css?family=Carme|Muli|Hind|Roboto+Condensed);
 body {
     padding-top: 75px;
     background-color: #D4FFF7;
-    font-family: 'Open Sans';
+    font-family: 'Muli';
 }
 nav {
     background-color: #ffffff;
     color: #000000;
+}
+.sass {
+    font-family: 'Playball';
+    font-size: 16px;
 }
 .navbar-custom .navbar-nav > li > a:hover, .navbar-custom .navbar-nav > li > a:focus {
     background-color: #ffffff;
@@ -14,7 +19,7 @@ nav {
 }
 .navbar-brand {
     font-family: 'Playball';
-    font-size: 50px;
+    font-size: 55px;
     color: #000000;
     padding-left: 30px;
 }
@@ -25,42 +30,60 @@ nav {
 .navbar-brand:hover {
     color: #545454;
 }
+.navSass {
+    font-family: 'Playball';
+    font-size: 23px;
+}
+#apt {
+    text-align: left;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    margin-left: 60px;
+}
 #list {
     position: absolute;
-    top: 50px;
+    top: 60px;
     bottom: 20px;
-    left: 20px;
+    left: 25px;
     overflow-y: scroll;
 }
 #sendsass {
     text-align: center;
     float: right;
+    padding-top: 125px;
 }
 .title:hover {
     text-decoration: none;
     color: black;
 }
 #container {
-    padding-right: 30px;
-    width: 600px; 
-    height: 600px; 
-    margin: 0 auto;
+    padding-right: 75px;
+    margin-right: 75px;
+    width: 550px; 
+    height: 550px; 
 }
 #mychores {
     text-align: center;
 }
 h1 {
     font-size: 30px;
-    padding: 10px;
+    padding-top: 50px;
 }
-h2 {
-    font-size: 25px;  
+.choreIcon {
+    font-size: 25px; 
+    color: #000000; 
+}
+.choreIcon:hover {
+    text-decoration: none;
+    color: #545454;
 }
 p {
     font-size: 15px;
+    padding-bottom: 10px;
 }
 .chores {
-    margin-top: 75px;
+    text-align: center;
 }
 input[type=checkbox]
 {
@@ -70,4 +93,30 @@ input[type=checkbox]
   -webkit-transform: scale(1.1); /* Safari and Chrome */
   -o-transform: scale(1.1); /* Opera */
   padding: 10px;
+}
+h3 {
+    font-size: 28px;
+    display: inline-block;
+}
+.btn {
+    display: inline-block;
+    float: right;
+    margin: 30px;
+}
+.tab {
+    margin-left: 15px;
+    font-size: 23px;
+    
+}
+form {
+    margin: 0;
+    font-size: 15px;
+}
+#contactinfo {
+    font-size: 25px;
+}
+#send {
+    margin: 0;
+    margin-right: 50px;
+    color: #128A38;
 }
