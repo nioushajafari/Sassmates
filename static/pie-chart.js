@@ -1,47 +1,133 @@
-var width = 500,
-    height = 500,
-    radius = Math.min(width, height) / 2;
+$(function () {
+    var colors = Highcharts.getOptions().colors,
+        categories = ['Jaclyn', 'NJ', 'Adrian', 'Jess', 'Spencer', 'Taylor'],
+        data = [{
+            y: 20,
+            color: colors[0],
+            drilldown: {
+                name: 'Jaclyn chores',
+                categories: ['Trash', 'Dishes'],
+                data: [ 10, 10],
+                color: colors[0]
+            }
+        }, {
+            y: 20,
+            color: colors[1],
+            drilldown: {
+                name: 'NJ chores',
+                categories: ['None'],
+                data: [20],
+                color: colors[1]
+            }
+        }, {
+            y: 20,
+            color: colors[2],
+            drilldown: {
+                name: 'Adrian chores',
+                categories: ['Dusting', 'Sweeping'
+                ],
+                data: [10, 10],
+                color: colors[2]
+            }
+        }, {
+            y: 20,
+            color: colors[3],
+            drilldown: {
+                name: 'Jess chores',
+                categories: ['Bathroom'],
+                data: [20],
+                color: colors[3]
+            }
+        }, {
+            y: 20,
+            color: colors[5],
+            drilldown: {
+                name: 'Spencer chores',
+                categories: ['Kitchen'],
+                data: [20],
+                color: colors[3]
+            }
+        }, {
+            y: 20,
+            color: colors[4],
+            drilldown: {
+                name: 'Taylor chores',
+                categories: ['Groceries'],
+                data: [20],
+                color: colors[4]
+            }
+        }],
+        browserData = [],
+        versionsData = [],
+        i,
+        j,
+        dataLen = data.length,
+        drillDataLen,
+        brightness;
 
-var color = d3.scale.ordinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
-var arc = d3.svg.arc()
-    .outerRadius(radius - 10)
-    .innerRadius(0);
+    // Build the data arrays
+    for (i = 0; i < dataLen; i += 1) {
 
-var labelArc = d3.svg.arc()
-    .outerRadius(radius - 40)
-    .innerRadius(radius - 40);
+        // add browser data
+        browserData.push({
+            name: categories[i],
+            y: data[i].y,
+            color: data[i].color
+        });
 
-var pie = d3.layout.pie()
-    .sort(null)
-    .value(function(d) { return d.roommates; });
+        // add version data
+        drillDataLen = data[i].drilldown.data.length;
+        for (j = 0; j < drillDataLen; j += 1) {
+            brightness = 0.2 - (j / drillDataLen) / 5;
+            versionsData.push({
+                name: data[i].drilldown.categories[j],
+                y: data[i].drilldown.data[j],
+                color: Highcharts.Color(data[i].color).brighten(brightness).get()
+            });
+        }
+    }
 
-var svg = d3.select("#mychart").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-  .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-d3.csv("/static/data.csv", type, function(error, data) {
-  if (error) throw error;
-
-  var g = svg.selectAll(".arc")
-      .data(pie(data))
-    .enter().append("g")
-      .attr("class", "arc");
-
-  g.append("path")
-      .attr("d", arc)
-      .style("fill", function(d) { return color(d.data.name); });
-
-  g.append("text")
-      .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
-      .attr("dy", ".35em")
-      .text(function(d) { return d.data.name; });
+    // Create the chart
+    $('#container').highcharts({
+        chart: {
+            type: 'pie',
+            backgroundColor: '#DEFFF9'
+        },
+        title: {
+            text: 'Frosh House'
+        },
+        plotOptions: {
+            pie: {
+                shadow: false,
+                center: ['50%', '50%']
+            }
+        },
+        tooltip: {
+            valueSuffix: '%'
+        },
+        series: [{
+            name: 'Browsers',
+            data: browserData,
+            size: '60%',
+            dataLabels: {
+                formatter: function () {
+                    return this.y > 5 ? this.point.name : null;
+                },
+                color: '#ffffff',
+                distance: -30
+            }
+        }, {
+            name: 'Versions',
+            data: versionsData,
+            size: '80%',
+            innerSize: '60%',
+            dataLabels: {
+                formatter: function () {
+                    // display only if larger than 1
+                    return this.y > 1 ? '<b>' + this.point.name: null;
+                }
+            }
+        }]
+    });
 });
-
-function type(d) {
-  d.roommates = +d.roommates;
-  return d;
-}
