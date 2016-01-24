@@ -2,6 +2,8 @@ from flask import Flask, render_template
 from model import Model, HouseHold, User, Chore
 app = Flask(__name__)
 
+import json
+
 model = Model()
 model.createHouse("Hacks", 3)
 y = model.getHouse("Hacks")
@@ -26,12 +28,24 @@ def home():
 def sendSass():
     return render_template('sendSass.html', name="James")
 
+#
+# @app.route("/api/chart")
+# def chart():
+#     global model
+#     return model.users[0].to_json()
 
-@app.route("/api/chart")
-def chart():
-    global model
-    return model.users[0].to_json()
 
+@app.route("/household")
+def household():
+    houseHold = HouseHold("fake", 6)
+    houseHold.addUser("Jaclyn")
+    houseHold.addUser("NJ")
+    houseHold.addUser("Adrian")
+    houseHold.addUser("Ali")
+    houseHold.addUser("Spencer")
+    houseHold.addUser("James")
+
+    return json.dumps(houseHold.__dict__)
 
 @app.route("/api/person_chore_dict")
 def choreDict():

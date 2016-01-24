@@ -68,7 +68,7 @@ class HouseHold:
         self.houseCode = code
         self.numPeople = numPeople
         self.chores = [] # list of chores
-        self.people = [] # list of names
+        self.people = [] # list of user
         self.started = False
 
     def choreDict(self):
@@ -85,10 +85,11 @@ class HouseHold:
         newChore = Chore(name, dpr)
         self.chores.append(newChore)
 
-    # void adds user
-    def addUser(self, user):
+    # void adds user, 4 strings
+    def addUser(self, name, email, phone, password):
         if self.numPeople > len(self.people):
-            self.people.append(user)
+            newUser = User(name, email, phone, password)
+            self.people.append(newUser)
 
     # returns boolean
     def startHouse(self):
@@ -169,32 +170,32 @@ class HouseHold:
     def to_json(self):
         return json.dumps(self.__dict__)
 
-class Model:
-    'represents all the data in the application so far'
-
-    def __init__(self):
-        self.users = []
-        self.households = []
-
-    def createUser(self, name, email, phone, password):
-        newUser = User(name, email, phone, password)
-        self.users.append(newUser);
-
-    # sets the string house code of a string user to the given code
-    def setHouseCode(self, user, code):
-        for x in self.users:
-            if x.name == user:
-                x.setCode(code)
-
-    def createHouse(self, code, numPeople):
-        newHouse = HouseHold(code, numPeople)
-        self.households.append(newHouse)
-
-    def getHouse(self, code):
-        for h in self.households:
-            if h.houseCode == code:
-                return h
-        return False
-
-    def to_json(self):
-        return json.dumps(self.__dict__)
+# class Model:
+#     'represents all the data in the application so far'
+#
+#     def __init__(self):
+#         self.users = []
+#         self.households = []
+#
+#     def createUser(self, name, email, phone, password):
+#         newUser = User(name, email, phone, password)
+#         self.users.append(newUser);
+#
+#     # sets the string house code of a string user to the given code
+#     def setHouseCode(self, user, code):
+#         for x in self.users:
+#             if x.name == user:
+#                 x.setCode(code)
+#
+#     def createHouse(self, code, numPeople):
+#         newHouse = HouseHold(code, numPeople)
+#         self.households.append(newHouse)
+#
+#     def getHouse(self, code):
+#         for h in self.households:
+#             if h.houseCode == code:
+#                 return h
+#         return False
+#
+#     def to_json(self):
+#         return json.dumps(self.__dict__)
