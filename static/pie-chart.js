@@ -12,14 +12,20 @@ $(function () {
 
     var colors = Highcharts.getOptions().colors,
         categories = houseHold.people,
-
         //categories = ['Jaclyn', 'NJ', 'Adrian', 'Jess', 'Spencer', 'Taylor'],
         data = [{
             y: 20,
             color: colors[0],
             drilldown: {
                 name: categories[0] + ' chores',
-                categories: ['Trash', 'Dishes'],
+                userChores: categories[0].chores,
+                categories: {
+                    formatter: function () {
+                        return userChores < 1 ? ['None'] : userChores;
+                    }
+                },
+               // categories: ['Trash', 'Dishes'],
+                //data:
                 data: [10, 10],
                 color: colors[0]
             }
