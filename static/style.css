@@ -87,12 +87,12 @@ p {
 }
 input[type=checkbox]
 {
-  /* Double-sized Checkboxes */
-  -ms-transform: scale(1.1); /* IE */
-  -moz-transform: scale(1.1); /* FF */
-  -webkit-transform: scale(1.1); /* Safari and Chrome */
-  -o-transform: scale(1.1); /* Opera */
-  padding: 10px;
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(1.1); /* IE */
+    -moz-transform: scale(1.1); /* FF */
+    -webkit-transform: scale(1.1); /* Safari and Chrome */
+    -o-transform: scale(1.1); /* Opera */
+    padding: 10px;
 }
 h3 {
     font-size: 25px;
@@ -119,4 +119,28 @@ form {
     margin: 0;
     margin-right: 50px;
     color: #128A38;
+}
+.welcome {
+    font-family: 'Playball';
+    color: #000000;
+    font-size: 75px;
+}
+.welcome:hover {
+    text-decoration: none;
+    color: #545454;
+}
+#log {
+    margin-top: 100px;
+    text-align: center;
+
+}
+#logbtn {
+    display: inline-block;
+    float: none;
+}
+#signbtn {
+    float: none;
+}
+textarea {
+    margin: 5px;
 }

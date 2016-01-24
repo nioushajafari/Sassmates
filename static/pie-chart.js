@@ -108,10 +108,7 @@ $(function () {
             backgroundColor: '#D4FFF7'
         },
         title: {
-            text: 'Frosh House',
-            style: {
-                fontSize: '35px'
-            }
+            text: ''
         },
         exporting: { enabled: false },
         credits: { enabled: false },

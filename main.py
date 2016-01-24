@@ -13,6 +13,10 @@ def home():
 def sendSass():
     return render_template('sendSass.html', name="James")
 
+@app.route("/login")
+def login():
+    return render_template('login.html')
+
 @app.route("/household")
 def household():
     houseHold = HouseHold("fake", 6)
