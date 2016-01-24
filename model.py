@@ -23,7 +23,6 @@ import json
 #     @staticmethod
 #     def load():
 #         return map(User.from_json, eval(open("users").read())
-
 #    @staticmethod
 #    def all(users):
 #        with open("users", "w") as f:
@@ -41,8 +40,6 @@ class User:
 
     def setCode(self, newCode):
         self.houseCode = newCode
-
-    # dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'};
 
     def to_json(self):
         return json.dumps(self.__dict__)
@@ -111,13 +108,13 @@ class HouseHold:
 
     # String representing the chore -> void (move the chore to the next person)
     def doChore(self, chore):
-        oldUser = "" #string
+        oldName = "" #string
         oldUserPlace = -1 #user order place
         choreNum = -1 #indicy
         # for each chore, find the chore num and get the old user
         for x in range(0, len(self.chores)):
             if (self.chores[x].name == chore):
-                oldUser = self.chores[x].currentUser
+                oldName = self.chores[x].currentUser.name
                 choreNum = x
 
         # if not error, get the user place
