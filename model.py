@@ -1,7 +1,7 @@
 from time import gmtime, strftime
 
 from datetime import datetime
-from dateutil import relativedelta
+#from dateutil import relativedelta
 
 class User:
     'a user'
@@ -52,14 +52,14 @@ class HouseHold:
     def startHouse(self, groupings):
         # checks house start is valid
         if (len(self.people) == self.numPeople) and not self.started:
-            for x in range(0, len(self.groupings):
+            for x in range(0, len(self.groupings)):
                 personid = self.people[x]
                 for y in range(0, self.groupings[x]):
                     today = datetime.fromtimestamp(mktime(struct))
                     self.chores[self.groupings[x][y]].currentUser = personid
                     self.chores[self.groupings[x][y]].lastDone = today
-                    self.started = True
-                    return True
+            self.started = True
+            return True
         else:
             return False
 
@@ -68,13 +68,13 @@ class HouseHold:
         oldUser = -1
         oldUserPlace = -1
         choreNum = -1
-        for x in range(0, len(self.chores):
+        for x in range(0, len(self.chores)):
             if (self.chores[x].name == chore):
                 oldUser = self.chores[x].currentUser
                 choreNum = x
 
         if (oldUser != -1):
-            for y in range(0, len(self.people):
+            for y in range(0, len(self.people)):
                 if (self.people[y] == oldUser):
                     oldUserPlace = y
 
@@ -85,26 +85,28 @@ class HouseHold:
                 self.chores[choreNum] = self.people[oldUserPlace + 1]
 
 
-
-
     # User ID Number -> List of Chores For Person
     def getUserChores(self, user):
         userChores = []
         for chore in self.chores:
-            if (chore.currentUser == user)
+            if (chore.currentUser == user):
                 userChores.append(chore)
         return userChores
 
-    def __compareDates
+    def __compareDates(date1, date2):
+        #difference = relativedelta.relativedelta(date1, date2)
+        print "OOPS NOT READY"
+
 
     # Return the list of chores sorted by time
     def choresByTime(self):
+        print "OOPS NOT READY"
 
-    # String representing the chore -> boolean
+    # String representing the chore -> number
     def daysLeftForChore(self, chore):
-    # TODO Calculate Date Code
-
-
+        # TODO Calculate Date Code
+        # print "OOPS NOT READY"
+        return 3;
 
     # User ID Number -> List of Chores For Person Immediatly Before
     def userBeforeChores(self, user):
@@ -124,7 +126,7 @@ class Model:
 
     def createUser(self, email, phone, password):
         newUser = User(email, phone, password)
-        self.users.append(newUser);
+        self.users.append(newUser.id);
 
     def setHouseCode(self, user, code):
         self.users[user - 1001].setCode(code)
@@ -134,7 +136,7 @@ class Model:
         self.households.append(newHouse)
 
     def getHouse(self, code):
-        for x in range(0, len(households)):
+        for x in range(0, len(self.households)):
             if self.households[x].houseCode == code:
                 return self.households[x]
         return False
