@@ -10,21 +10,24 @@ import json
 #             "email": self.email,
 #         })
 #
-#     @staticmethod
-#     def from_json(user_model):
-#         return User(user_model["id"],...,inc=0)
-#
-#     @staticmethod
-#     def load():
-#         return map(User.from_json, eval(open("users").read())
-#
-#     @staticmethod
-#     def get(id):
-#         return {}
+
+
+# write
 
 #     def save(self):
 #         with open("users.txt", "a") as f:
 #             f.write(self.id,)
+
+#read
+
+#     @staticmethod
+#     def load():
+#         return map(User.from_json, eval(open("users").read())
+
+#    @staticmethod
+#    def all(users):
+#        with open("users", "w") as f:
+#            f.write(str(map(User.to_json, users)))
 
 class User:
     'a user'
@@ -39,6 +42,11 @@ class User:
     def setCode(self, newCode):
         self.houseCode = newCode
 
+    # dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'};
+
+    def to_json(self):
+        return json.dumps(self.__dict__)
+
 
 class Chore:
     'a single chore in a household'
@@ -49,6 +57,9 @@ class Chore:
         self.dpr = dpr
         self.lastDone = None
         self.currentUser = None
+
+    def to_json(self):
+        return json.dumps(self.__dict__)
 
 class HouseHold:
     'a full household'
@@ -146,17 +157,15 @@ class HouseHold:
                 if self.people[x].name == user:
                     return getUserChores(self.people[x - 1].name)
 
+    def to_json(self):
+        return json.dumps(self.__dict__)
+
 class Model:
     'represents all the data in the application so far'
 
     def __init__(self):
         self.users = []
         self.households = []
-
-#    @staticmethod
-#    def all(users):
-#        with open("users", "w") as f:
-#            f.write(str(map(User.to_json, users)))
 
     def createUser(self, name, email, phone, password):
         newUser = User(name, email, phone, password)
@@ -177,3 +186,6 @@ class Model:
             if h.houseCode == code:
                 return h
         return False
+
+    def to_json(self):
+        return json.dumps(self.__dict__)
