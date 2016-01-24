@@ -94,7 +94,7 @@ class HouseHold:
         return userChores
 
     def __compareDates(date1, date2):
-        return relativedelta.relativedelta(date1, date2)
+        return relativedelta.relativedelta(date1, date2).days
 
     # Return the list of chores sorted by time
     def choresByTime(self):
