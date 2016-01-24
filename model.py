@@ -1,7 +1,7 @@
 from time import gmtime, strftime
 
 from datetime import datetime
-#from dateutil import relativedelta
+from dateutil import relativedelta
 
 class User:
     'a user'
@@ -94,9 +94,7 @@ class HouseHold:
         return userChores
 
     def __compareDates(date1, date2):
-        #difference = relativedelta.relativedelta(date1, date2)
-        print "OOPS NOT READY"
-
+        return relativedelta.relativedelta(date1, date2)
 
     # Return the list of chores sorted by time
     def choresByTime(self):
