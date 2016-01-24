@@ -1,6 +1,7 @@
 $(function () {
 
     var houseHold = [];
+    var chores = [];
 
     $.ajax({
         url: "/household",
