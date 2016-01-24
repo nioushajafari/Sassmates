@@ -13,7 +13,7 @@ $(function () {
 
     var colors = Highcharts.getOptions().colors,
         //categories = houseHold.people,
-        categories = ['Jaclyn', 'NJ', 'Adrian', 'Ali', 'Spencer', 'James'],
+        categories = ['Jaclyn', 'Adrian', 'NJ', 'James', 'Ali', 'Spencer'],
         data = [{
             y: 20,
             color: '#CC495D',
@@ -27,7 +27,7 @@ $(function () {
                 //    }
                 //},
                 color: colors[0],
-                data: [10, 10],
+                data: [20],
             }
         }, {
             y: 20,
@@ -43,7 +43,7 @@ $(function () {
             drilldown: {
                 name: categories[2] + ' chores',
                 categories: dict['Adrian'],
-                data: [10, 10],
+                data: [20],
             }
         }, {
             y: 20,

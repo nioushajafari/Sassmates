@@ -16,8 +16,6 @@ houseHold.addChore("Bathroom", 7)
 houseHold.addChore("Shower", 7)
 houseHold.addChore("Attic", 14)
 houseHold.addChore("Kitchen", 3)
-houseHold.addChore("Grocery", 4)
-houseHold.addChore("Sweeping", 7)
 houseHold.startHouse()
 
 
@@ -25,6 +23,11 @@ houseHold.startHouse()
 def home():
     return render_template('index.html')
 
+@app.route("/api/do-chore/<chore>")
+def completeChore(chore):
+    global houseHold
+    houseHold.doChore(chore)
+    return "Done!"
 
 @app.route("/sendSass")
 def sendSass():

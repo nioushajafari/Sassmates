@@ -113,13 +113,13 @@ class HouseHold:
         # for each chore, find the chore num and get the old user
         for x in range(0, len(self.chores)):
             if (self.chores[x].name == chore):
-                oldName = self.chores[x].currentUser.name
+                oldName = self.chores[x].currentUser
                 choreNum = x
 
         # if not error, get the user place
-        if (oldUser != -1):
+        if (oldName != -1):
             for y in range(0, len(self.people)):
-                if (self.people[y].name == oldUser):
+                if (self.people[y].name == oldName):
                     oldUserPlace = y
 
         # if not error, move the user
