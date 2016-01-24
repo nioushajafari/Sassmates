@@ -4,7 +4,7 @@ $(function () {
     var chores = [];
 
     $.ajax({
-        url: "/household",
+        url: "/api/person_chore_dict",
         async: false,
     }).done(function(result) {
        houseHold = JSON.parse(result);
@@ -12,8 +12,8 @@ $(function () {
     });
 
     var colors = Highcharts.getOptions().colors,
-        categories = houseHold.people,
-        //categories = ['Jaclyn', 'NJ', 'Adrian', 'Jess', 'Spencer', 'Taylor'],
+        //categories = houseHold.people,
+        categories = ['Jaclyn', 'NJ', 'Adrian', 'Jess', 'Spencer', 'Taylor'],
         data = [{
             y: 20,
             color: '#CC495D',
