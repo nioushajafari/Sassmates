@@ -3,58 +3,52 @@ $(function () {
         categories = ['Jaclyn', 'NJ', 'Adrian', 'Jess', 'Spencer', 'Taylor'],
         data = [{
             y: 20,
-            color: '#8FB6EB',
+            color: '#CC495D',
             drilldown: {
                 name: 'Jaclyn chores',
                 categories: ['Trash', 'Dishes'],
                 data: [ 10, 10],
-                color: '#8FB6EB'
             }
         }, {
             y: 20,
-            color: '#467CC2',
+            color: '#ED9477',
             drilldown: {
                 name: 'NJ chores',
                 categories: ['None'],
                 data: [20],
-                color: '#467CC2'
             }
         }, {
             y: 20,
-            color: '#467CC2',
+            color: '#EDED72',
             drilldown: {
                 name: 'Adrian chores',
                 categories: ['Dusting', 'Sweeping'
                 ],
                 data: [10, 10],
-                color: '#467CC2'
             }
         }, {
             y: 20,
-            color: '#467CC2',
+            color: '#6EDB7E',
             drilldown: {
                 name: 'Jess chores',
                 categories: ['Bathroom'],
                 data: [20],
-                color: '#467CC2'
             }
         }, {
             y: 20,
-            color: '#467CC2',
+            color: '#64B5ED',
             drilldown: {
                 name: 'Spencer chores',
                 categories: ['Kitchen'],
                 data: [20],
-                color: '#467CC2'
             }
         }, {
             y: 20,
-            color: '#467CC2',
+            color: '#A489F0',
             drilldown: {
                 name: 'Taylor chores',
                 categories: ['Groceries'],
                 data: [20],
-                color: '#467CC2'
             }
         }],
         browserData = [],
@@ -79,7 +73,7 @@ $(function () {
         // add version data
         drillDataLen = data[i].drilldown.data.length;
         for (j = 0; j < drillDataLen; j += 1) {
-            brightness = 0.2;
+            brightness = 0.25;
             versionsData.push({
                 name: data[i].drilldown.categories[j],
                 y: data[i].drilldown.data[j],
@@ -92,7 +86,7 @@ $(function () {
     $('#container').highcharts({
         chart: {
             type: 'pie',
-            backgroundColor: '#E3FFFA'
+            backgroundColor: '#D4FFF7'
         },
         title: {
             text: 'Frosh House',
@@ -124,7 +118,8 @@ $(function () {
                 },
                 color: '#000000',
                 style: {
-                    textShadow: false 
+                    textShadow: false,
+                    fontSize: '16px'
                 },
                 distance: -125
             }
@@ -140,7 +135,8 @@ $(function () {
                 },
                 color: '#000000',
                 style: {
-                    textShadow: false 
+                    textShadow: false, 
+                    fontSize: '14px'
                 },
                 distance: -28
             }
