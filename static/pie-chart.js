@@ -3,13 +3,22 @@ $(function () {
     var dict = [];
     var chores = [];
 
-    $.ajax({
+
+        $.ajax({
         url: "/api/person_chore_dict",
         async: false,
     }).done(function(result) {
        dict = result;
 
     });
+
+    var jc =  dict['Jaclyn'];
+    var ac =  dict['Adrian'];
+    var nc =  dict['NJ'];
+    var jac =  dict['James'];
+    var alc =  dict['Ali'];
+    var sc =  dict['Spencer'];
+
 
     var colors = Highcharts.getOptions().colors,
         //categories = houseHold.people,
@@ -19,13 +28,8 @@ $(function () {
             color: '#CC495D',
             drilldown: {
                 name: 'Jaclyn',
-                categories: dict['Jaclyn'],
-                //categories: json['Jaclyn'],
-                //categories: {
-                //    formatter: function () {
-                //        return userChores.length < 1 ? ['None'] : userChores;
-                //    }
-                //},
+                userChores: dict['Jaclyn'],
+                categories: jc.length < 1 ? ['None'] : jc,
                 color: colors[0],
                 data: [20],
             }
@@ -34,40 +38,41 @@ $(function () {
             color: '#ED9477',
             drilldown: {
                 name: categories[1] + ' chores',
-                categories: dict['Adrian'],
-                data: [20],
+                categories: ac.length < 1 ? ['None'] : ac,
+                data: ac.length > 1 ?[10, 10] : [20],
+
             }
         }, {
             y: 20,
             color: '#EDED72',
             drilldown: {
                 name: categories[2] + ' chores',
-                categories: dict['NJ'],
-                data: [20],
+                categories: nc.length < 1 ? ['None'] : nc,
+                data: nc.length > 1 ?[10, 10] : [20],
             }
         }, {
             y: 20,
             color: '#6EDB7E',
             drilldown: {
                 name: categories[3] + ' chores',
-                categories: dict['James'],
-                data: [20],
+                categories: jac.length < 1 ? ['None'] : jac,
+                data: jac.length > 1 ?[10, 10] : [20],
             }
         }, {
             y: 20,
             color: '#64B5ED',
             drilldown: {
                 name: categories[4] + ' chores',
-                categories: dict['Ali'],
-                data: [20],
+                categories: alc.length < 1 ? ['None'] : alc,
+                data: alc.length > 1 ?[10, 10] : [20],
             }
         }, {
             y: 20,
             color: '#A489F0',
             drilldown: {
                 name: categories[5] + ' chores',
-                categories: dict['Spencer'],
-                data: [20],
+                categories: sc.length < 1 ? ['None'] : sc,
+                data: sc.length > 1 ?[10, 10] : [20],
             }
         }],
         browserData = [],
