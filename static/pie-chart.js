@@ -27,7 +27,6 @@ $(function () {
                 //    }
                 //},
                 color: colors[0],
-                //categories: ['Trash', 'Dishes'],
                 data: [10, 10],
             }
         }, {
