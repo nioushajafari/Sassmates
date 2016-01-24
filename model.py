@@ -71,15 +71,24 @@ class HouseHold:
         self.people = [] # list of names
         self.started = False
 
+    def choreDict(self):
+        people_dict = "{"
+        for user in self.people:
+            chores = str(self.getUserChores(user.name))
+            people_dict += ("\'" + user.name + "\': " + chores + ", ")
+        people_dict = people_dict[:-2]
+        people_dict += "}"
+        return json.dumps(people_dict)
+
     # void adds chore, name and days per reset
     def addChore(self, name, dpr):
         newChore = Chore(name, dpr)
         self.chores.append(newChore)
 
     # void adds user
-    def addUser(self, userName):
+    def addUser(self, user):
         if self.numPeople > len(self.people):
-            self.people.append(userName)
+            self.people.append(user)
 
     # returns boolean
     def startHouse(self):
@@ -87,11 +96,11 @@ class HouseHold:
         if (len(self.people) == self.numPeople) and not self.started:
             assigned = False
             choresAssigned = 0
-            while (choresAssigned <= len(self.chores)):
+            while (choresAssigned < len(self.chores)):
                 for x in self.people:
-                    if (choresAssigned <= len(self.chores)):
-                        today = datetime.datetime.now()
-                        self.chores[choresAssigned].currentUser = x
+                    if (choresAssigned < len(self.chores)):
+                        today = datetime.now()
+                        self.chores[choresAssigned].currentUser = x.name
                         self.chores[choresAssigned].lastDone = today
                         choresAssigned += 1
             self.started = True
@@ -129,7 +138,7 @@ class HouseHold:
         userChores = []
         for chore in self.chores:
             if (chore.currentUser == user):
-                userChores.append(chore)
+                userChores.append(chore.name)
         return userChores
 
     def compareDates(date1, date2):
