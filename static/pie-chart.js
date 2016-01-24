@@ -91,7 +91,7 @@ $(function () {
         title: {
             text: 'Frosh House',
             style: {
-                fontSize: '24px'
+                fontSize: '35px'
             }
         },
         exporting: { enabled: false },

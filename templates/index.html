@@ -4,12 +4,12 @@
 	<title>Sassmates</title>
 	<!-- Scripts -->
 	<script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<!-- Styles -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <nav class="navbar navbar-custom navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -25,9 +25,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" id="navright">
-                    <li><a href="/sendSass">Sass</a></li>
-                    <li><a href="/settings">Settings</a></li>
-                    <li><a href="/login">Log out</a></li>
+                    <li><a class="navright" href="/sendSass">Sass</a></li>
+                    <li><a class="navright" href="/settings">Settings</a></li>
+                    <li><a class="navright" href="/login">Log out</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -37,20 +37,33 @@
 	<!-- Content -->
     <div class-"container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <script src="https://code.highcharts.com/highcharts.js"></script>
-                <script src="https://code.highcharts.com/modules/exporting.js"></script>
-                <div id="container"></div>
-            </div>
             <div class="col-md-6" id="mychores">
-                <h1>Current Chores</h1>
-                <h2>Trash</h2>
-                <h2>Dishes</h2>
-                <h1>Upcoming Chores</h1>
-                <h2>Groceries</h2>
+                <div class="chores">
+                    <h1>Current Chores</h1>
+                    <div class="checkbox">
+                        <h2><label><input type="checkbox" value="">Trash</label></h2>
+                        <p>X days overdue: sassy comment</p>
+                    </div>
+                    <div class="checkbox">
+                        <h2><label><input type="checkbox" value="">Dishes</label></h2>
+                        <p>X days left</p>
+                    </div>
+                </div>
+                <div class="chores">
+                    <h1>Upcoming Chores</h1>
+                    <h2>Groceries</h2>
+                    <p>About X days until it's your turn</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="container">
+                    <script src="https://code.highcharts.com/highcharts.js"></script>
+                    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                </div>
             </div>
         </div>
     </div>
 	<!-- Blocking scripts/Need DOM -->
 	<script type="text/javascript" src="/static/pie-chart.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>

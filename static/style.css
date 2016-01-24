@@ -6,19 +6,24 @@ body {
 }
 nav {
     background-color: #ffffff;
+    color: #000000;
+}
+.navbar-custom .navbar-nav > li > a:hover, .navbar-custom .navbar-nav > li > a:focus {
+    background-color: #ffffff;
+    color: #545454;
 }
 .navbar-brand {
     font-family: 'Playball';
-    font-size: 45px;
+    font-size: 50px;
     color: #000000;
     padding-left: 30px;
 }
-#navright {
+.navright {
     font-size: 20px;
     color: #000000;
 }
 .navbar-brand:hover {
-    color: #467CC2;
+    color: #545454;
 }
 #list {
     position: absolute;
@@ -36,9 +41,33 @@ nav {
     color: black;
 }
 #container {
-    padding-left: 20px;
-    width: 600px; height: 600px; margin: 0 auto;
+    padding-right: 30px;
+    width: 600px; 
+    height: 600px; 
+    margin: 0 auto;
 }
 #mychores {
     text-align: center;
+}
+h1 {
+    font-size: 30px;
+    padding: 10px;
+}
+h2 {
+    font-size: 25px;  
+}
+p {
+    font-size: 15px;
+}
+.chores {
+    margin-top: 75px;
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.1); /* IE */
+  -moz-transform: scale(1.1); /* FF */
+  -webkit-transform: scale(1.1); /* Safari and Chrome */
+  -o-transform: scale(1.1); /* Opera */
+  padding: 10px;
 }
