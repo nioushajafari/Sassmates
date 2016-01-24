@@ -116,7 +116,7 @@ class HouseHold:
 
 
 class Model:
-    'represents all the data in the application'
+    'represents all the data in the application so far'
 
     def __init__(self):
         self.users = []
