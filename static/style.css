@@ -36,16 +36,16 @@ nav {
 }
 #apt {
     text-align: left;
-    font-size: 15px;
+    font-size: 20px;
     margin: 0;
     padding: 0;
-    margin-left: 60px;
+    margin-left: 100px;
 }
 #list {
     position: absolute;
     top: 60px;
     bottom: 20px;
-    left: 25px;
+    margin-left: 50px;
     overflow-y: scroll;
 }
 #sendsass {
@@ -87,15 +87,15 @@ p {
 }
 input[type=checkbox]
 {
-  /* Double-sized Checkboxes */
-  -ms-transform: scale(1.1); /* IE */
-  -moz-transform: scale(1.1); /* FF */
-  -webkit-transform: scale(1.1); /* Safari and Chrome */
-  -o-transform: scale(1.1); /* Opera */
-  padding: 10px;
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(1.1); /* IE */
+    -moz-transform: scale(1.1); /* FF */
+    -webkit-transform: scale(1.1); /* Safari and Chrome */
+    -o-transform: scale(1.1); /* Opera */
+    padding: 10px;
 }
 h3 {
-    font-size: 28px;
+    font-size: 25px;
     display: inline-block;
 }
 .btn {
@@ -105,7 +105,7 @@ h3 {
 }
 .tab {
     margin-left: 15px;
-    font-size: 23px;
+    font-size: 20px;
     
 }
 form {
@@ -119,4 +119,28 @@ form {
     margin: 0;
     margin-right: 50px;
     color: #128A38;
+}
+.welcome {
+    font-family: 'Playball';
+    color: #000000;
+    font-size: 75px;
+}
+.welcome:hover {
+    text-decoration: none;
+    color: #545454;
+}
+#log {
+    margin-top: 100px;
+    text-align: center;
+
+}
+#logbtn {
+    display: inline-block;
+    float: none;
+}
+#signbtn {
+    float: none;
+}
+textarea {
+    margin: 5px;
 }
