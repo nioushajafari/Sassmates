@@ -1,40 +1,41 @@
 $(function () {
 
-    var houseHold = [];
+    var dict = [];
     var chores = [];
 
     $.ajax({
         url: "/api/person_chore_dict",
         async: false,
     }).done(function(result) {
-       houseHold = JSON.parse(result);
+       dict = result;
 
     });
 
     var colors = Highcharts.getOptions().colors,
         //categories = houseHold.people,
-        categories = ['Jaclyn', 'NJ', 'Adrian', 'Jess', 'Spencer', 'Taylor'],
+        categories = ['Jaclyn', 'NJ', 'Adrian', 'Ali', 'Spencer', 'James'],
         data = [{
             y: 20,
             color: '#CC495D',
             drilldown: {
-                name: categories[0] + ' chores',
-                userChores: categories[0].chores,
-                categories: {
-                    formatter: function () {
-                        return userChores < 1 ? ['None'] : userChores;
-                    }
-                },
+                name: 'Jaclyn',
+                categories: dict['Jaclyn'],
+                //categories: json['Jaclyn'],
+                //categories: {
+                //    formatter: function () {
+                //        return userChores.length < 1 ? ['None'] : userChores;
+                //    }
+                //},
                 color: colors[0],
-                categories: ['Trash', 'Dishes'],
-                data: [ 10, 10],
+                //categories: ['Trash', 'Dishes'],
+                data: [10, 10],
             }
         }, {
             y: 20,
             color: '#ED9477',
             drilldown: {
                 name: categories[1] + ' chores',
-                categories: ['None'],
+                categories: dict['NJ'],
                 data: [20],
             }
         }, {
@@ -42,8 +43,7 @@ $(function () {
             color: '#EDED72',
             drilldown: {
                 name: categories[2] + ' chores',
-                categories: ['Dusting', 'Sweeping'
-                ],
+                categories: dict['Adrian'],
                 data: [10, 10],
             }
         }, {
@@ -51,7 +51,7 @@ $(function () {
             color: '#6EDB7E',
             drilldown: {
                 name: categories[3] + ' chores',
-                categories: ['Bathroom'],
+                categories: dict['Ali'],
                 data: [20],
             }
         }, {
@@ -59,7 +59,7 @@ $(function () {
             color: '#64B5ED',
             drilldown: {
                 name: categories[4] + ' chores',
-                categories: ['Kitchen'],
+                categories: dict['Spencer'],
                 data: [20],
             }
         }, {
@@ -67,7 +67,7 @@ $(function () {
             color: '#A489F0',
             drilldown: {
                 name: categories[5] + ' chores',
-                categories: ['Groceries'],
+                categories: dict['James'],
                 data: [20],
             }
         }],

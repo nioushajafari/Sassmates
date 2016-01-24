@@ -13,11 +13,10 @@ houseHold.addUser("James", "test2", "test3", "test4")
 houseHold.addChore("Trash", 3)
 houseHold.addChore("Dishes", 4)
 houseHold.addChore("Bathroom", 7)
-houseHold.addChore("Kitchen2", 14)
-houseHold.addChore("Trash2", 3)
-houseHold.addChore("Dishes2", 4)
-houseHold.addChore("Bathroom2", 7)
-houseHold.addChore("Kitchen2", 14)
+houseHold.addChore("Attic", 14)
+houseHold.addChore("Kitchen", 3)
+houseHold.addChore("Grocery", 4)
+houseHold.addChore("Sweeping", 7)
 houseHold.startHouse()
 
 
@@ -30,11 +29,10 @@ def home():
 def sendSass():
     return render_template('sendSass.html', name="James")
 
-@app.route("/household")
-def household():
+@app.route("/api/person_chore_dict")
+def choreDict():
     global houseHold
-    return json.dumps(houseHold.__dict__)
-
+    return houseHold.choreDict()
 
 if __name__ == "__main__":
     app.run(debug=True)

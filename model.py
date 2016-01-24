@@ -2,6 +2,7 @@ from time import gmtime, strftime
 
 from datetime import datetime
 from dateutil import relativedelta
+import flask
 
 import json
 
@@ -69,13 +70,11 @@ class HouseHold:
         self.started = False
 
     def choreDict(self):
-        people_dict = "{"
+        people_dict = dict()
         for user in self.people:
-            chores = str(self.getUserChores(user.name))
-            people_dict += ("\'" + user.name + "\': " + chores + ", ")
-        people_dict = people_dict[:-2]
-        people_dict += "}"
-        return json.dumps(people_dict)
+            chores = self.getUserChores(user.name)
+            people_dict[user.name] = chores
+        return flask.jsonify(people_dict)
 
     # void adds chore, name and days per reset
     def addChore(self, name, dpr):
