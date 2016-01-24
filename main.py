@@ -3,6 +3,23 @@ from model import HouseHold
 import json
 app = Flask(__name__)
 
+houseHold = HouseHold("fake", 6)
+houseHold.addUser("Jaclyn", "test2", "test3", "test4")
+houseHold.addUser("NJ", "test2", "test3", "test4")
+houseHold.addUser("Adrian", "test2", "test3", "test4")
+houseHold.addUser("Ali", "test2", "test3", "test4")
+houseHold.addUser("Spencer", "test2", "test3", "test4")
+houseHold.addUser("James", "test2", "test3", "test4")
+houseHold.addChore("Trash", 3)
+houseHold.addChore("Dishes", 4)
+houseHold.addChore("Bathroom", 7)
+houseHold.addChore("Kitchen2", 14)
+houseHold.addChore("Trash2", 3)
+houseHold.addChore("Dishes2", 4)
+houseHold.addChore("Bathroom2", 7)
+houseHold.addChore("Kitchen2", 14)
+houseHold.startHouse()
+
 
 @app.route("/")
 def home():
@@ -15,14 +32,7 @@ def sendSass():
 
 @app.route("/household")
 def household():
-    houseHold = HouseHold("fake", 6)
-    houseHold.addUser("Jaclyn")
-    houseHold.addUser("NJ")
-    houseHold.addUser("Adrian")
-    houseHold.addUser("Ali")
-    houseHold.addUser("Spencer")
-    houseHold.addUser("James")
-
+    global houseHold
     return json.dumps(houseHold.__dict__)
 
 

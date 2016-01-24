@@ -23,7 +23,6 @@ import json
 #     @staticmethod
 #     def load():
 #         return map(User.from_json, eval(open("users").read())
-
 #    @staticmethod
 #    def all(users):
 #        with open("users", "w") as f:
@@ -41,8 +40,6 @@ class User:
 
     def setCode(self, newCode):
         self.houseCode = newCode
-
-    # dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'};
 
     def to_json(self):
         return json.dumps(self.__dict__)
@@ -68,18 +65,28 @@ class HouseHold:
         self.houseCode = code
         self.numPeople = numPeople
         self.chores = [] # list of chores
-        self.people = [] # list of names
+        self.people = [] # list of user
         self.started = False
+
+    def choreDict(self):
+        people_dict = "{"
+        for user in self.people:
+            chores = str(self.getUserChores(user.name))
+            people_dict += ("\'" + user.name + "\': " + chores + ", ")
+        people_dict = people_dict[:-2]
+        people_dict += "}"
+        return json.dumps(people_dict)
 
     # void adds chore, name and days per reset
     def addChore(self, name, dpr):
         newChore = Chore(name, dpr)
         self.chores.append(newChore)
 
-    # void adds user
-    def addUser(self, userName):
+    # void adds user, 4 strings
+    def addUser(self, name, email, phone, password):
         if self.numPeople > len(self.people):
-            self.people.append(userName)
+            newUser = User(name, email, phone, password)
+            self.people.append(newUser)
 
     # returns boolean
     def startHouse(self):
@@ -87,11 +94,11 @@ class HouseHold:
         if (len(self.people) == self.numPeople) and not self.started:
             assigned = False
             choresAssigned = 0
-            while (choresAssigned <= len(self.chores)):
+            while (choresAssigned < len(self.chores)):
                 for x in self.people:
-                    if (choresAssigned <= len(self.chores)):
-                        today = datetime.datetime.now()
-                        self.chores[choresAssigned].currentUser = x
+                    if (choresAssigned < len(self.chores)):
+                        today = datetime.now()
+                        self.chores[choresAssigned].currentUser = x.name
                         self.chores[choresAssigned].lastDone = today
                         choresAssigned += 1
             self.started = True
@@ -101,13 +108,13 @@ class HouseHold:
 
     # String representing the chore -> void (move the chore to the next person)
     def doChore(self, chore):
-        oldUser = "" #string
+        oldName = "" #string
         oldUserPlace = -1 #user order place
         choreNum = -1 #indicy
         # for each chore, find the chore num and get the old user
         for x in range(0, len(self.chores)):
             if (self.chores[x].name == chore):
-                oldUser = self.chores[x].currentUser
+                oldName = self.chores[x].currentUser.name
                 choreNum = x
 
         # if not error, get the user place
@@ -129,7 +136,7 @@ class HouseHold:
         userChores = []
         for chore in self.chores:
             if (chore.currentUser == user):
-                userChores.append(chore)
+                userChores.append(chore.name)
         return userChores
 
     def compareDates(date1, date2):
@@ -160,32 +167,32 @@ class HouseHold:
     def to_json(self):
         return json.dumps(self.__dict__)
 
-class Model:
-    'represents all the data in the application so far'
-
-    def __init__(self):
-        self.users = []
-        self.households = []
-
-    def createUser(self, name, email, phone, password):
-        newUser = User(name, email, phone, password)
-        self.users.append(newUser);
-
-    # sets the string house code of a string user to the given code
-    def setHouseCode(self, user, code):
-        for x in self.users:
-            if x.name == user:
-                x.setCode(code)
-
-    def createHouse(self, code, numPeople):
-        newHouse = HouseHold(code, numPeople)
-        self.households.append(newHouse)
-
-    def getHouse(self, code):
-        for h in self.households:
-            if h.houseCode == code:
-                return h
-        return False
-
-    def to_json(self):
-        return json.dumps(self.__dict__)
+# class Model:
+#     'represents all the data in the application so far'
+#
+#     def __init__(self):
+#         self.users = []
+#         self.households = []
+#
+#     def createUser(self, name, email, phone, password):
+#         newUser = User(name, email, phone, password)
+#         self.users.append(newUser);
+#
+#     # sets the string house code of a string user to the given code
+#     def setHouseCode(self, user, code):
+#         for x in self.users:
+#             if x.name == user:
+#                 x.setCode(code)
+#
+#     def createHouse(self, code, numPeople):
+#         newHouse = HouseHold(code, numPeople)
+#         self.households.append(newHouse)
+#
+#     def getHouse(self, code):
+#         for h in self.households:
+#             if h.houseCode == code:
+#                 return h
+#         return False
+#
+#     def to_json(self):
+#         return json.dumps(self.__dict__)
