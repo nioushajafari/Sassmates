@@ -17,6 +17,12 @@ def sendSass():
 def household():
     houseHold = HouseHold("fake", 6)
     houseHold.addUser("Jaclyn")
+    houseHold.addUser("NJ")
+    houseHold.addUser("Adrian")
+    houseHold.addUser("Ali")
+    houseHold.addUser("Spencer")
+    houseHold.addUser("James")
+
     return json.dumps(houseHold.__dict__)
 
 

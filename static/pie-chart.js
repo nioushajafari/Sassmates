@@ -24,11 +24,7 @@ $(function () {
                         return userChores < 1 ? ['None'] : userChores;
                     }
                 },
-               //categories: ['Trash', 'Dishes'],
-                //data:
-                data: [10, 10],
                 color: colors[0],
-                name: 'Jaclyn chores',
                 categories: ['Trash', 'Dishes'],
                 data: [ 10, 10],
             }
@@ -36,7 +32,7 @@ $(function () {
             y: 20,
             color: '#ED9477',
             drilldown: {
-                name: 'NJ chores',
+                name: categories[1] + ' chores',
                 categories: ['None'],
                 data: [20],
             }
@@ -44,7 +40,7 @@ $(function () {
             y: 20,
             color: '#EDED72',
             drilldown: {
-                name: 'Adrian chores',
+                name: categories[2] + ' chores',
                 categories: ['Dusting', 'Sweeping'
                 ],
                 data: [10, 10],
@@ -53,7 +49,7 @@ $(function () {
             y: 20,
             color: '#6EDB7E',
             drilldown: {
-                name: 'Jess chores',
+                name: categories[3] + ' chores',
                 categories: ['Bathroom'],
                 data: [20],
             }
@@ -61,7 +57,7 @@ $(function () {
             y: 20,
             color: '#64B5ED',
             drilldown: {
-                name: 'Spencer chores',
+                name: categories[4] + ' chores',
                 categories: ['Kitchen'],
                 data: [20],
             }
@@ -69,7 +65,7 @@ $(function () {
             y: 20,
             color: '#A489F0',
             drilldown: {
-                name: 'Taylor chores',
+                name: categories[5] + ' chores',
                 categories: ['Groceries'],
                 data: [20],
             }
