@@ -1,12 +1,17 @@
-@import url(https://fonts.googleapis.com/css?family=Playball|Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Playball);
+@import url(https://fonts.googleapis.com/css?family=Carme|Muli|Hind|Roboto+Condensed);
 body {
     padding-top: 75px;
     background-color: #D4FFF7;
-    font-family: 'Open Sans';
+    font-family: 'Muli';
 }
 nav {
     background-color: #ffffff;
     color: #000000;
+}
+.sass {
+    font-family: 'Playball';
+    font-size: 16px;
 }
 .navbar-custom .navbar-nav > li > a:hover, .navbar-custom .navbar-nav > li > a:focus {
     background-color: #ffffff;
@@ -25,16 +30,21 @@ nav {
 .navbar-brand:hover {
     color: #545454;
 }
+.navSass {
+    font-family: 'Playball';
+    font-size: 23px;
+}
 #list {
     position: absolute;
-    top: 50px;
+    top: 60px;
     bottom: 20px;
-    left: 20px;
+    left: 25px;
     overflow-y: scroll;
 }
 #sendsass {
     text-align: center;
     float: right;
+    padding-top: 125px;
 }
 .title:hover {
     text-decoration: none;
@@ -70,4 +80,30 @@ input[type=checkbox]
   -webkit-transform: scale(1.1); /* Safari and Chrome */
   -o-transform: scale(1.1); /* Opera */
   padding: 10px;
+}
+h3 {
+    font-size: 28px;
+    display: inline-block;
+    margin-left: 35px;
+}
+button {
+    display: inline-block;
+    margin: 40px;
+    float: right;
+}
+.tab {
+    margin-left: 60px;
+    font-size: 23px;
+    display: inline-block;
+}
+form {
+    margin: 0;
+    font-size: 15px;
+}
+#contactinfo {
+    font-size: 25px;
+}
+#send {
+    margin: 0;
+    margin-right: 50px;
 }
