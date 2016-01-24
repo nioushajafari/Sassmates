@@ -91,7 +91,8 @@ $(function () {
     // Create the chart
     $('#container').highcharts({
         chart: {
-            type: 'pie'
+            type: 'pie',
+            backgroundColor: '#DEFFF9'
         },
         title: {
             text: 'Frosh House'

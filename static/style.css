@@ -1,3 +1,6 @@
+html, body {
+    background-color: #DEFFF9;
+}
 #list {
     position: absolute;
     top: 50px;
