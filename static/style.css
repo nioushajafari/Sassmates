@@ -1,5 +1,6 @@
-html, body {
-    background-color: #DEFFF9;
+body {
+    padding-top: 75px;
+    background-color: #E3FFFA;
 }
 #list {
     position: absolute;
