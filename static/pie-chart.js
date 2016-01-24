@@ -3,14 +3,55 @@ $(function () {
     var dict = [];
     var chores = [];
 
+    var buildChoreElement = function (chore) {
+        return "<div class='chore' \
+                <h2><a id='currentChore' class='choreIcon' href='#'>\
+                <i class='fa fa-check-square-o'></i>" + chore + "</a></h2>\
+                <p>1 day overdue - any time now...</p>\
+                </div>"
+    }
 
-        $.ajax({
+    var buildupcomingChoreElement = function (chore) {
+        return "<div class='chore' \
+                <h2><a id='currentChore' class='choreIcon' href='#'>\
+                <i class='fa'></i>" + chore + "</a></h2>\
+                <p>1 day overdue - any time now...</p>\
+                </div>"
+    }
+
+
+    $.ajax({
         url: "/api/person_chore_dict",
         async: false,
     }).done(function(result) {
-       dict = result;
+            dict = result;
+            var Jchores = '';
+            for (var i = 0; i < dict['Jaclyn'].length; i++) {
+                Jchores += buildChoreElement(dict['Jaclyn'][i]);cx
+            }
+            $("#chores-list").append(Jchores);
 
+            var Schores = '';
+            for (var i = 0; i < dict['Spencer'].length; i++) {
+                Schores += buildupcomingChoreElement(dict['Spencer'][i]);
+            }
+            $("#upComing").append(Schores);
     });
+
+
+
+    $("#currentChore").click(function(){
+        $.ajax({
+            url: "/api/do-chore/Trash",
+            async: false,
+        }).done(function(result) {
+            dict = result;
+        });
+    })
+
+
+
+
 
     var jc =  dict['Jaclyn'];
     var ac =  dict['Adrian'];
@@ -21,7 +62,6 @@ $(function () {
 
 
     var colors = Highcharts.getOptions().colors,
-        //categories = houseHold.people,
         categories = ['Jaclyn', 'Adrian', 'NJ', 'James', 'Ali', 'Spencer'],
         data = [{
             y: 20,
@@ -31,7 +71,7 @@ $(function () {
                 userChores: dict['Jaclyn'],
                 categories: jc.length < 1 ? ['None'] : jc,
                 color: colors[0],
-                data: [20],
+                data: jc.length > 1 ?[10, 10] : [20],
             }
         }, {
             y: 20,

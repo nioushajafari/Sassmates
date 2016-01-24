@@ -6,29 +6,6 @@ import flask
 
 import json
 
-#     def to_json(self):
-#         return json.dumps({
-#             "email": self.email,
-#         })
-#
-
-
-# write
-
-#     def save(self):
-#         with open("users.txt", "a") as f:
-#             f.write(self.id,)
-
-#read
-
-#     @staticmethod
-#     def load():
-#         return map(User.from_json, eval(open("users").read())
-#    @staticmethod
-#    def all(users):
-#        with open("users", "w") as f:
-#            f.write(str(map(User.to_json, users)))
-
 class User:
     'a user'
 

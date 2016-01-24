@@ -27,7 +27,7 @@ def home():
 def completeChore(chore):
     global houseHold
     houseHold.doChore(chore)
-    return "Done!"
+    return houseHold.choreDict()
 
 @app.route("/sendSass")
 def sendSass():
