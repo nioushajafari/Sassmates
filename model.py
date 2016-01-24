@@ -38,9 +38,9 @@ class HouseHold:
         self.people = []
         self.started = False
 
-    # void adds chore
-    def addChore(self, name, desc, dpr):
-        newChore = Chore(name, desc, dpr)
+    # void adds chore, name and days per reset
+    def addChore(self, name, dpr):
+        newChore = Chore(name, dpr)
         self.chores.append(newChore)
 
     # void adds user

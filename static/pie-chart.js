@@ -1,13 +1,26 @@
 $(function () {
+
+    var houseHold = [];
+
+    $.ajax({
+        url: "/household",
+        async: false,
+    }).done(function(result) {
+       houseHold = JSON.parse(result);
+
+    });
+
     var colors = Highcharts.getOptions().colors,
-        categories = ['Jaclyn', 'NJ', 'Adrian', 'Jess', 'Spencer', 'Taylor'],
+        categories = houseHold.people,
+
+        //categories = ['Jaclyn', 'NJ', 'Adrian', 'Jess', 'Spencer', 'Taylor'],
         data = [{
             y: 20,
             color: colors[0],
             drilldown: {
-                name: 'Jaclyn chores',
+                name: categories[0] + ' chores',
                 categories: ['Trash', 'Dishes'],
-                data: [ 10, 10],
+                data: [10, 10],
                 color: colors[0]
             }
         }, {
