@@ -98,10 +98,16 @@ h3 {
     font-size: 25px;
     display: inline-block;
 }
-.btn {
+.btn-primary {
     display: inline-block;
     float: right;
     margin: 30px;
+    color: #2298BF;
+    background: #ffffff;
+}
+.btn-primary:hover {
+    color: #ffffff;
+    background: #2298BF;
 }
 .tab {
     margin-left: 15px;
@@ -116,9 +122,17 @@ form {
     font-size: 25px;
 }
 #send {
+    float: right;
     margin: 0;
     margin-right: 50px;
-    color: #128A38;
+    color: #1BAB5A;
+    background: #ffffff;
+}
+#send:hover {
+    margin: 0;
+    margin-right: 50px;
+    color: #ffffff;
+    background: #1BAB5A;
 }
 .welcome {
     font-family: 'Playball';
@@ -137,9 +151,24 @@ form {
 #logbtn {
     display: inline-block;
     float: none;
+    color: #2298BF;
+    background: #ffffff;
+}
+#logbtn:hover {
+    display: inline-block;
+    float: none;
+    color: #ffffff;
+    background: #2298BF;
 }
 #signbtn {
     float: none;
+    color: #CC495D;
+    background: #ffffff;
+}
+#signbtn:hover {
+    float: none;
+    color: #ffffff;
+    background: #CC495D;
 }
 textarea {
     margin: 5px;
