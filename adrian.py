@@ -1,23 +1,25 @@
 from flask import Flask, render_template
-from model import Model, HouseHold, User, Chore
+from model import HouseHold, User, Chore
 app = Flask(__name__)
 
 import json
 
-model = Model()
-model.createHouse("Hacks", 3)
-y = model.getHouse("Hacks")
-model.createUser("Adrian", "test2", "test3", "test4")
-model.createUser("NJ", "test2", "test3", "test4")
-model.createUser("Jaclyn", "test2", "test3", "test4")
-y.addUser(model.users[0])
-y.addUser(model.users[1])
-y.addUser(model.users[2])
-y.addChore("Trash", 3)
-y.addChore("Dishes", 4)
-y.addChore("Bathroom", 7)
-y.addChore("Kitchen", 14)
-y.startHouse()
+houseHold = HouseHold("fake", 6)
+houseHold.addUser("Jaclyn", "test2", "test3", "test4")
+houseHold.addUser("NJ", "test2", "test3", "test4")
+houseHold.addUser("Adrian", "test2", "test3", "test4")
+houseHold.addUser("Ali", "test2", "test3", "test4")
+houseHold.addUser("Spencer", "test2", "test3", "test4")
+houseHold.addUser("James", "test2", "test3", "test4")
+houseHold.addChore("Trash", 3)
+houseHold.addChore("Dishes", 4)
+houseHold.addChore("Bathroom", 7)
+houseHold.addChore("Kitchen2", 14)
+houseHold.addChore("Trash2", 3)
+houseHold.addChore("Dishes2", 4)
+houseHold.addChore("Bathroom2", 7)
+houseHold.addChore("Kitchen2", 14)
+houseHold.startHouse()
 
 @app.route("/")
 def home():
@@ -37,20 +39,14 @@ def sendSass():
 
 @app.route("/household")
 def household():
-    houseHold = HouseHold("fake", 6)
-    houseHold.addUser("Jaclyn")
-    houseHold.addUser("NJ")
-    houseHold.addUser("Adrian")
-    houseHold.addUser("Ali")
-    houseHold.addUser("Spencer")
-    houseHold.addUser("James")
+    global houseHold
 
     return json.dumps(houseHold.__dict__)
 
 @app.route("/api/person_chore_dict")
 def choreDict():
-    global model
-    return model.getHouse("Hacks").choreDict()
+    global houseHold
+    return houseHold.choreDict()
 
 # @app.route("/api/users/<id>")
 # def get_user_id(id):
