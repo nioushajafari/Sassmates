@@ -1,5 +1,24 @@
-html, body {
-    background-color: #DEFFF9;
+@import url(https://fonts.googleapis.com/css?family=Playball|Open+Sans);
+body {
+    padding-top: 75px;
+    background-color: #D4FFF7;
+    font-family: 'Open Sans';
+}
+nav {
+    background-color: #ffffff;
+}
+.navbar-brand {
+    font-family: 'Playball';
+    font-size: 45px;
+    color: #000000;
+    padding-left: 30px;
+}
+#navright {
+    font-size: 20px;
+    color: #000000;
+}
+.navbar-brand:hover {
+    color: #467CC2;
 }
 #list {
     position: absolute;
