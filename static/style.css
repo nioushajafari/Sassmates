@@ -45,7 +45,7 @@ nav {
     position: absolute;
     top: 60px;
     bottom: 20px;
-    left: 25px;
+    margin-left: 50px;
     overflow-y: scroll;
 }
 #sendsass {
@@ -95,7 +95,7 @@ input[type=checkbox]
   padding: 10px;
 }
 h3 {
-    font-size: 28px;
+    font-size: 25px;
     display: inline-block;
 }
 .btn {
@@ -105,7 +105,7 @@ h3 {
 }
 .tab {
     margin-left: 15px;
-    font-size: 23px;
+    font-size: 20px;
     
 }
 form {
