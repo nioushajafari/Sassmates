@@ -19,7 +19,7 @@ nav {
 }
 .navbar-brand {
     font-family: 'Playball';
-    font-size: 50px;
+    font-size: 55px;
     color: #000000;
     padding-left: 30px;
 }
@@ -33,6 +33,13 @@ nav {
 .navSass {
     font-family: 'Playball';
     font-size: 23px;
+}
+#apt {
+    text-align: left;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    margin-left: 60px;
 }
 #list {
     position: absolute;
@@ -51,26 +58,32 @@ nav {
     color: black;
 }
 #container {
-    padding-right: 30px;
-    width: 600px; 
-    height: 600px; 
-    margin: 0 auto;
+    padding-right: 75px;
+    margin-right: 75px;
+    width: 550px; 
+    height: 550px; 
 }
 #mychores {
     text-align: center;
 }
 h1 {
     font-size: 30px;
-    padding: 10px;
+    padding-top: 50px;
 }
-h2 {
-    font-size: 25px;  
+.choreIcon {
+    font-size: 25px; 
+    color: #000000; 
+}
+.choreIcon:hover {
+    text-decoration: none;
+    color: #545454;
 }
 p {
     font-size: 15px;
+    padding-bottom: 10px;
 }
 .chores {
-    margin-top: 75px;
+    text-align: center;
 }
 input[type=checkbox]
 {
@@ -84,17 +97,16 @@ input[type=checkbox]
 h3 {
     font-size: 28px;
     display: inline-block;
-    margin-left: 35px;
 }
-button {
+.btn {
     display: inline-block;
-    margin: 40px;
     float: right;
+    margin: 30px;
 }
 .tab {
-    margin-left: 60px;
+    margin-left: 15px;
     font-size: 23px;
-    display: inline-block;
+    
 }
 form {
     margin: 0;
@@ -106,4 +118,5 @@ form {
 #send {
     margin: 0;
     margin-right: 50px;
+    color: #128A38;
 }
